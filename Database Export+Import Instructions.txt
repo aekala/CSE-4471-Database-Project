@@ -1,0 +1,17 @@
+PSQL Instructions: 
+	If not already on Marriott DB, type in "\c Marriott" to change databases
+	"\dn" to see list of schemas
+	"show search_path" to see current path
+	"set search_path to "MarriottSchema"" to change search path to what we need to view table
+	"\dt" to see tables
+	"select * from "MarriottCustomer" to see customer records table
+
+PGAdmin 4 Instructions: 
+	To create a copy of the database's data current data, open the directory tree
+	until you get to the MarriottCustomer table, from there you can export the data as 
+	a CSV file. 
+	To then upload this data back to the table, you will need to delete 
+	all of the data currently in the table so that you don't get a 
+	duplicate key error. To do this, in PSQL go to the table and type 
+	"delete from "MarriottCustomer"". Then you can import the CSV file 
+	with no problem. 
