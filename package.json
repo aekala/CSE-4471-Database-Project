@@ -1,0 +1,25 @@
+{
+  "name": "CSE-4471-Database-Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leokodish/CSE-4471-Database-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leokodish/CSE-4471-Database-Project/issues"
+  },
+  "homepage": "https://github.com/leokodish/CSE-4471-Database-Project#readme"
+}
