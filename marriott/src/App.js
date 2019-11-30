@@ -28,12 +28,13 @@ class App extends React.Component {
       const person = this.state.data[i];
       data[i] = {
         firstname: person.FirstName,
+        middlename: person.MiddleName,
         lastname: person.LastName,
         streetaddress: person.StreetAddress,
         city: person.City,
         state: person.State,
         zipcode: person.ZipCode,
-        birthdate: person.BirthDate,
+        birthdate: person.Birthdate,
         member: person.Member,
         homenumber: person.HomePhoneNumber,
         cellnumber: person.CellNumber,
@@ -44,8 +45,12 @@ class App extends React.Component {
 
     const columns = [{
       Header: 'First Name',
-      accessor: 'firstname' // String-based value accessors!
+      accessor: 'firstname' 
     }, {
+      Header: 'Middle Name',
+      accessor: 'middlename'
+    },
+    {
       Header: 'Last Name',
       accessor: 'lastname',
     }, {
@@ -80,7 +85,7 @@ class App extends React.Component {
       accessor: 'creditcardnumber',
     }]
 
-    return <ReactTable data={data} columns={columns} />
+    return <ReactTable data={data} columns={columns} sortable={true} />
   }
 }
 
