@@ -1,15 +1,4 @@
 require('dotenv').config();     // configures dotenv so we can use process.env for environment variables
-// const queries = {
-//     setSearchPath: function(destination) {  // query for changing search_path
-//         return "SET search_path to \"" + destination + "\"";      // have extra quotation marks to keep case-sensitivity of destination 
-//     },
-
-//     showSearchPath: "SHOW search_path",    // query to show search_path 
-
-//     showTableData: function(tablename) {    // query for showing all data in table
-//         return "SELECT * from \"" + tablename + "\"";
-//     }
-// }
 
 //connect to postgres DB
 const {Pool, Client} = require('pg');
@@ -45,13 +34,13 @@ const getAll = (request, response) => {
             throw error;
         }
         decryptedData = decryptResponse(results.rows);
-        //response.status(200).json(results.rows);
         decryptedData.then(data => {
             response.status(200).json(data);
         })
     })
 }
 
+//run decrypt on each piece of data pulled from DB
 async function decryptResponse(dataList) {
     let revisedDataList = dataList;
     for (let i = 0; i < dataList.length; i++) {
@@ -86,6 +75,7 @@ async function decryptResponse(dataList) {
     return revisedDataList;
 }
 
+//use private key to decrypt data and conver it to an ASCII string
 async function decrypt(data) {
     decryptedText = await pool.query("SELECT convert_from(decrypt(\'" + data + "\', \'" + process.env.KEY + "\', \'aes\'), \'SQL_ASCII\');");
     return decryptedText.rows[0].convert_from;

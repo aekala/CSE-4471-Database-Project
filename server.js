@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
-const cors = require('cors');
-const db = require('./query.js');  // contains Postgres queries
+const cors = require('cors'); // for cross-origin-resource-sharing
+const db = require('./query.js');  // contains Postgres queries and decryption functions
 require('dotenv').config();     // configures dotenv so we can use process.env for environment variables
 
 const app = express();
